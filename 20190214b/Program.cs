@@ -10,8 +10,29 @@ namespace _20190214b
     {
         static void Main(string[] args)
         {
-            new WorkBench().Run();
+            WorkBench2 wb2 = new WorkBench2();
+            wb2.VariableA = 7;
+            WorkBench2.VariableB = 8;
+            wb2.Run();
+            WorkBench2 wb2_b = new WorkBench2();
+            Console.WriteLine(WorkBench2.VariableB);
         }
+    }
+
+    class WorkBench2
+    {
+        public int VariableA;
+        public static int VariableB;
+
+        public void Run()
+        {
+            Console.WriteLine(" VariableA is {0} ", VariableA);
+            Console.WriteLine(" VariableB is {0} ", VariableB);
+            VariableA++;
+            VariableB++;
+            Console.WriteLine(" VariableA is {0} ", VariableA);
+        }
+
     }
 
     class WorkBench
@@ -23,7 +44,8 @@ namespace _20190214b
         {
             // commit
             randomChoice = rand.Next(0, 25);
-
+            // printing variables is called tracing
+            Console.WriteLine("POINT A: randomChoice is {0} ", randomChoice);
             for (Console.WriteLine("YIPPIE") ; MethodA() ; Console.WriteLine(MethodB()) )
             {   
                 Console.WriteLine("Happy Valentine's Day!!");
@@ -33,12 +55,17 @@ namespace _20190214b
 
         public bool MethodA()
         {
-            return true;
+            if (randomChoice < 13)
+            {
+                return true;
+            }
+            return false;
+            
         }
 
         public string MethodB()
         {
-            string[] letters = new string[26] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+            string[] letters = new string[13] { "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
             string output;
             
             output = letters[randomChoice];
@@ -46,4 +73,6 @@ namespace _20190214b
         }
 
     }
+
+    
 }
