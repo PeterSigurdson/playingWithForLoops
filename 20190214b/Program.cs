@@ -33,6 +33,7 @@ namespace _20190214b
             Console.WriteLine(" VariableA is {0} ", VariableA);
         }
 
+        public static void RunB() { VariableB++;  }
     }
 
     class WorkBench
